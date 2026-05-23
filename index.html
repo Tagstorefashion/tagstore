@@ -1,9 +1,9 @@
-html_code = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAGSTORE - Premium Menswear</title>
+    <title>TAG STORE - Premium Menswear</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -257,6 +257,34 @@ html_code = '''<!DOCTYPE html>
             height: 85%;
             z-index: 1;
             filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+
+        .store-info {
+            padding: 3rem 5%;
+            background: var(--white);
+            text-align: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .store-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .store-info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--gray);
+        }
+
+        .store-info-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
         }
 
         .categories {
@@ -787,11 +815,48 @@ html_code = '''<!DOCTYPE html>
             color: var(--accent);
         }
 
+        .tiktok-section {
+            padding: 3rem 5%;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .tiktok-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tiktok-section p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .tiktok-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #fe2c55;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tiktok-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(254, 44, 85, 0.3);
+        }
+
         @media (max-width: 1024px) {
             .hero h1 { font-size: 3rem; }
             .category-grid { grid-template-columns: repeat(2, 1fr); }
             .features { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .store-info-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -824,7 +889,7 @@ html_code = '''<!DOCTYPE html>
             <li><a href="#home">Home</a></li>
             <li><a href="#categories">Categories</a></li>
             <li><a href="#products">Shop</a></li>
-            <li><a href="#features">About</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-icons">
             <button><i class="fas fa-search"></i></button>
@@ -847,6 +912,23 @@ html_code = '''<!DOCTYPE html>
             </div>
         </div>
         <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&auto=format&fit=crop&q=80" alt="Fashion Model" class="hero-image">
+    </section>
+
+    <section class="store-info">
+        <div class="store-info-grid">
+            <div class="store-info-item">
+                <i class="fas fa-phone"></i>
+                <span>0100 323 3910</span>
+            </div>
+            <div class="store-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ramallah - Al-Bireh</span>
+            </div>
+            <div class="store-info-item">
+                <i class="fab fa-tiktok"></i>
+                <span>@taag.store</span>
+            </div>
+        </div>
     </section>
 
     <section class="categories" id="categories">
@@ -877,7 +959,7 @@ html_code = '''<!DOCTYPE html>
             <h2>Our Products</h2>
             <p>Premium shirts and jeans crafted for you</p>
         </div>
-        
+
         <div class="filter-tabs">
             <button class="filter-btn active" onclick="filterProducts('all')">All</button>
             <button class="filter-btn" onclick="filterProducts('shirts')">Shirts</button>
@@ -885,6 +967,14 @@ html_code = '''<!DOCTYPE html>
         </div>
 
         <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="tiktok-section" id="contact">
+        <h2>Follow Us on TikTok</h2>
+        <p>Stay updated with our latest collections and exclusive offers</p>
+        <a href="https://tiktok.com/@taag.store" target="_blank" class="tiktok-btn">
+            <i class="fab fa-tiktok"></i> @taag.store
+        </a>
     </section>
 
     <section class="features" id="features">
@@ -944,8 +1034,8 @@ html_code = '''<!DOCTYPE html>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://tiktok.com/@taag.store" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/201003233910" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-links">
@@ -967,17 +1057,17 @@ html_code = '''<!DOCTYPE html>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Company</h4>
+                <h4>Contact</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="tel:01003233910">0100 323 3910</a></li>
+                    <li><a href="#">Ramallah - Al-Bireh</a></li>
+                    <li><a href="https://tiktok.com/@taag.store" target="_blank">TikTok: @taag.store</a></li>
+                    <li><a href="mailto:tagstore@gmail.com">tagstore@gmail.com</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 TAGSTORE. All rights reserved.</p>
+            <p>&copy; 2026 TAG STORE. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1106,7 +1196,7 @@ html_code = '''<!DOCTYPE html>
             const filtered = currentFilter === 'all' 
                 ? products 
                 : products.filter(p => p.category === currentFilter);
-            
+
             grid.innerHTML = filtered.map(product => `
                 <div class="product-card animate">
                     <div class="product-image">
@@ -1137,7 +1227,7 @@ html_code = '''<!DOCTYPE html>
 
         function filterProducts(category) {
             currentFilter = category;
-            
+
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.textContent.toLowerCase() === category || 
@@ -1145,20 +1235,20 @@ html_code = '''<!DOCTYPE html>
                     btn.classList.add('active');
                 }
             });
-            
+
             renderProducts();
         }
 
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
-            
+
             if (existingItem) {
                 existingItem.quantity++;
             } else {
                 cart.push({ ...product, quantity: 1 });
             }
-            
+
             updateCart();
             showToast(`${product.name} added to cart!`);
         }
@@ -1172,13 +1262,13 @@ html_code = '''<!DOCTYPE html>
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
             const cartTotal = document.getElementById('cartTotal');
-            
+
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
+
             cartCount.textContent = totalItems;
             cartTotal.textContent = `${totalPrice} EGP`;
-            
+
             if (cart.length === 0) {
                 cartItems.innerHTML = `
                     <div class="empty-cart">
@@ -1237,11 +1327,4 @@ html_code = '''<!DOCTYPE html>
         });
     </script>
 </body>
-</html>'''
-
-# Save to output file
-with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
-    f.write(html_code)
-
-print("File saved successfully!")
-print(f"File size: {len(html_code)} characters")
+</html>
