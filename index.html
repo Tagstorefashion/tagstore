@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_code = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -43,7 +42,6 @@
             border-radius: 4px;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -147,7 +145,6 @@
             font-weight: 600;
         }
 
-        /* Hero Section */
         .hero {
             margin-top: 70px;
             height: 90vh;
@@ -262,7 +259,6 @@
             filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
         }
 
-        /* Categories */
         .categories {
             padding: 5rem 5%;
             background: var(--white);
@@ -286,8 +282,10 @@
 
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .category-card {
@@ -334,7 +332,6 @@
             opacity: 0.8;
         }
 
-        /* Products */
         .products {
             padding: 5rem 5%;
         }
@@ -509,7 +506,6 @@
             background: var(--accent);
         }
 
-        /* Features */
         .features {
             padding: 5rem 5%;
             background: var(--primary);
@@ -539,7 +535,6 @@
             font-size: 0.9rem;
         }
 
-        /* Cart Sidebar */
         .cart-sidebar {
             position: fixed;
             top: 0;
@@ -684,7 +679,6 @@
             color: var(--light-gray);
         }
 
-        /* Footer */
         footer {
             background: var(--primary);
             color: white;
@@ -765,7 +759,6 @@
             font-size: 0.9rem;
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -789,7 +782,11 @@
             opacity: 1;
         }
 
-        /* Responsive */
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
         @media (max-width: 1024px) {
             .hero h1 { font-size: 3rem; }
             .category-grid { grid-template-columns: repeat(2, 1fr); }
@@ -809,7 +806,6 @@
             .footer-grid { grid-template-columns: 1fr; }
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -822,9 +818,8 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">TAG<span>STORE</span></a>
+        <a href="#" class="logo"><i class="fas fa-crown logo-icon"></i> TAG<span>STORE</span></a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#categories">Categories</a></li>
@@ -841,7 +836,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <span class="hero-tag">New Collection 2026</span>
@@ -855,75 +849,54 @@
         <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&auto=format&fit=crop&q=80" alt="Fashion Model" class="hero-image">
     </section>
 
-    <!-- Categories -->
     <section class="categories" id="categories">
         <div class="section-header">
             <h2>Shop by Category</h2>
             <p>Explore our carefully curated collections</p>
         </div>
         <div class="category-grid">
-            <div class="category-card" onclick="filterProducts('suits')">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop&q=80" alt="Suits">
-                <div class="category-overlay">
-                    <h3>Suits & Blazers</h3>
-                    <span>24 Items</span>
-                </div>
-            </div>
             <div class="category-card" onclick="filterProducts('shirts')">
                 <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80" alt="Shirts">
                 <div class="category-overlay">
-                    <h3>Shirts</h3>
-                    <span>36 Items</span>
+                    <h3>Premium Shirts</h3>
+                    <span>12 Items</span>
                 </div>
             </div>
-            <div class="category-card" onclick="filterProducts('casual')">
-                <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=400&auto=format&fit=crop&q=80" alt="Casual">
+            <div class="category-card" onclick="filterProducts('jeans')">
+                <img src="https://images.unsplash.com/photo-1542272617-08f086302542?w=400&auto=format&fit=crop&q=80" alt="Jeans">
                 <div class="category-overlay">
-                    <h3>Casual Wear</h3>
-                    <span>42 Items</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="filterProducts('accessories')">
-                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&auto=format&fit=crop&q=80" alt="Accessories">
-                <div class="category-overlay">
-                    <h3>Accessories</h3>
-                    <span>18 Items</span>
+                    <h3>Designer Jeans</h3>
+                    <span>8 Items</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products -->
     <section class="products" id="products">
         <div class="section-header">
-            <h2>Featured Products</h2>
-            <p>Handpicked styles for every occasion</p>
+            <h2>Our Products</h2>
+            <p>Premium shirts and jeans crafted for you</p>
         </div>
         
         <div class="filter-tabs">
             <button class="filter-btn active" onclick="filterProducts('all')">All</button>
-            <button class="filter-btn" onclick="filterProducts('suits')">Suits</button>
             <button class="filter-btn" onclick="filterProducts('shirts')">Shirts</button>
-            <button class="filter-btn" onclick="filterProducts('casual')">Casual</button>
-            <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+            <button class="filter-btn" onclick="filterProducts('jeans')">Jeans</button>
         </div>
 
-        <div class="product-grid" id="productGrid">
-            <!-- Products will be inserted here by JavaScript -->
-        </div>
+        <div class="product-grid" id="productGrid"></div>
     </section>
 
-    <!-- Features -->
     <section class="features" id="features">
         <div class="feature">
             <i class="fas fa-truck"></i>
             <h3>Free Shipping</h3>
-            <p>On orders over $150</p>
+            <p>On orders over 2,500 EGP</p>
         </div>
         <div class="feature">
             <i class="fas fa-undo"></i>
             <h3>Easy Returns</h3>
-            <p>30-day return policy</p>
+            <p>14-day return policy</p>
         </div>
         <div class="feature">
             <i class="fas fa-lock"></i>
@@ -937,7 +910,6 @@
         </div>
     </section>
 
-    <!-- Cart Sidebar -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
@@ -953,29 +925,27 @@
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span id="cartTotal">$0.00</span>
+                <span id="cartTotal">0 EGP</span>
             </div>
             <button class="checkout-btn">Proceed to Checkout</button>
         </div>
     </div>
 
-    <!-- Toast -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Added to cart!</span>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="#" class="logo">TAG<span>STORE</span></a>
+                <a href="#" class="logo"><i class="fas fa-crown logo-icon"></i> TAG<span>STORE</span></a>
                 <p>Elevating men's fashion through curated collections that blend timeless elegance with contemporary style. Designed for the modern gentleman.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-links">
@@ -1012,92 +982,125 @@
     </footer>
 
     <script>
-        // Product Data
         const products = [
             {
                 id: 1,
-                name: "Classic Navy Suit",
-                category: "suits",
-                price: 599,
-                originalPrice: 799,
-                image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format&fit=crop&q=80",
+                name: "Classic White Dress Shirt",
+                category: "shirts",
+                price: 850,
+                originalPrice: 1200,
+                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&auto=format&fit=crop&q=80",
                 badge: "Best Seller"
             },
             {
                 id: 2,
-                name: "Oxford Dress Shirt",
-                category: "shirts",
-                price: 129,
-                originalPrice: 169,
-                image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&auto=format&fit=crop&q=80",
+                name: "Slim Fit Blue Denim Jeans",
+                category: "jeans",
+                price: 1200,
+                originalPrice: 1800,
+                image: "https://images.unsplash.com/photo-1542272617-08f086302542?w=400&auto=format&fit=crop&q=80",
                 badge: "New"
             },
             {
                 id: 3,
-                name: "Premium Leather Jacket",
-                category: "casual",
-                price: 449,
-                originalPrice: 599,
-                image: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=400&auto=format&fit=crop&q=80",
-                badge: null
-            },
-            {
-                id: 4,
-                name: "Silk Tie Collection",
-                category: "accessories",
-                price: 79,
-                originalPrice: 99,
-                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=80",
-                badge: "Sale"
-            },
-            {
-                id: 5,
-                name: "Charcoal Slim Fit Suit",
-                category: "suits",
-                price: 649,
-                originalPrice: 849,
-                image: "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=400&auto=format&fit=crop&q=80",
-                badge: null
-            },
-            {
-                id: 6,
-                name: "Linen Summer Shirt",
+                name: "Oxford Blue Casual Shirt",
                 category: "shirts",
-                price: 89,
-                originalPrice: 119,
+                price: 750,
+                originalPrice: 1100,
                 image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80",
                 badge: "Hot"
             },
             {
+                id: 4,
+                name: "Dark Wash Straight Jeans",
+                category: "jeans",
+                price: 1350,
+                originalPrice: 1900,
+                image: "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&auto=format&fit=crop&q=80",
+                badge: null
+            },
+            {
+                id: 5,
+                name: "Black Formal Shirt",
+                category: "shirts",
+                price: 950,
+                originalPrice: 1400,
+                image: "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=400&auto=format&fit=crop&q=80",
+                badge: "Sale"
+            },
+            {
+                id: 6,
+                name: "Ripped Skinny Jeans",
+                category: "jeans",
+                price: 1100,
+                originalPrice: 1600,
+                image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=80",
+                badge: "Trending"
+            },
+            {
                 id: 7,
-                name: "Designer Sunglasses",
-                category: "accessories",
-                price: 199,
-                originalPrice: 249,
-                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&auto=format&fit=crop&q=80",
+                name: "Linen Summer Shirt",
+                category: "shirts",
+                price: 650,
+                originalPrice: 950,
+                image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&auto=format&fit=crop&q=80",
                 badge: null
             },
             {
                 id: 8,
-                name: "Casual Chino Pants",
-                category: "casual",
-                price: 119,
-                originalPrice: 149,
-                image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&auto=format&fit=crop&q=80",
+                name: "Light Wash Relaxed Jeans",
+                category: "jeans",
+                price: 1000,
+                originalPrice: 1500,
+                image: "https://images.unsplash.com/photo-1542272454315-1c285153ff4f?w=400&auto=format&fit=crop&q=80",
                 badge: "New"
+            },
+            {
+                id: 9,
+                name: "Striped Business Shirt",
+                category: "shirts",
+                price: 800,
+                originalPrice: 1200,
+                image: "https://images.unsplash.com/photo-1602810316498-ab67cf68c8a1?w=400&auto=format&fit=crop&q=80",
+                badge: null
+            },
+            {
+                id: 10,
+                name: "Slim Tapered Black Jeans",
+                category: "jeans",
+                price: 1250,
+                originalPrice: 1750,
+                image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=400&auto=format&fit=crop&q=80",
+                badge: "Best Seller"
+            },
+            {
+                id: 11,
+                name: "Printed Casual Shirt",
+                category: "shirts",
+                price: 700,
+                originalPrice: 1050,
+                image: "https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=400&auto=format&fit=crop&q=80",
+                badge: "Sale"
+            },
+            {
+                id: 12,
+                name: "Vintage Wash Bootcut Jeans",
+                category: "jeans",
+                price: 1150,
+                originalPrice: 1650,
+                image: "https://images.unsplash.com/photo-1551028919-ac76c9085f79?w=400&auto=format&fit=crop&q=80",
+                badge: null
             }
         ];
 
         let cart = [];
         let currentFilter = 'all';
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             updateCart();
         });
 
-        // Render Products
         function renderProducts() {
             const grid = document.getElementById('productGrid');
             const filtered = currentFilter === 'all' 
@@ -1121,8 +1124,8 @@
                         <div class="product-category">${product.category}</div>
                         <h3 class="product-title">${product.name}</h3>
                         <div class="product-price">
-                            <span class="current-price">$${product.price}</span>
-                            <span class="original-price">$${product.originalPrice}</span>
+                            <span class="current-price">${product.price} EGP</span>
+                            <span class="original-price">${product.originalPrice} EGP</span>
                         </div>
                         <button class="add-to-cart" onclick="addToCart(${product.id})">
                             Add to Cart
@@ -1132,11 +1135,9 @@
             `).join('');
         }
 
-        // Filter Products
         function filterProducts(category) {
             currentFilter = category;
             
-            // Update active button
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.textContent.toLowerCase() === category || 
@@ -1148,7 +1149,6 @@
             renderProducts();
         }
 
-        // Add to Cart
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
@@ -1163,13 +1163,11 @@
             showToast(`${product.name} added to cart!`);
         }
 
-        // Remove from Cart
         function removeFromCart(productId) {
             cart = cart.filter(item => item.id !== productId);
             updateCart();
         }
 
-        // Update Cart UI
         function updateCart() {
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
@@ -1179,7 +1177,7 @@
             const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
             cartCount.textContent = totalItems;
-            cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+            cartTotal.textContent = `${totalPrice} EGP`;
             
             if (cart.length === 0) {
                 cartItems.innerHTML = `
@@ -1194,7 +1192,7 @@
                         <img src="${item.image}" alt="${item.name}">
                         <div class="cart-item-details">
                             <div class="cart-item-title">${item.name}</div>
-                            <div class="cart-item-price">$${item.price} x ${item.quantity}</div>
+                            <div class="cart-item-price">${item.price} EGP x ${item.quantity}</div>
                         </div>
                         <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
                             <i class="fas fa-trash"></i>
@@ -1204,14 +1202,12 @@
             }
         }
 
-        // Toggle Cart
         function toggleCart() {
             document.getElementById('cartSidebar').classList.toggle('open');
             document.getElementById('cartOverlay').classList.toggle('open');
             document.body.style.overflow = document.getElementById('cartSidebar').classList.contains('open') ? 'hidden' : '';
         }
 
-        // Toast Notification
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMessage').textContent = message;
@@ -1219,7 +1215,6 @@
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1230,7 +1225,6 @@
             });
         });
 
-        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
@@ -1243,4 +1237,11 @@
         });
     </script>
 </body>
-</html>
+</html>'''
+
+# Save to output file
+with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print("File saved successfully!")
+print(f"File size: {len(html_code)} characters")
